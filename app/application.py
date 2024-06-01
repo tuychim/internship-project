@@ -9,3 +9,4 @@ class Application:
         self.main_page = MainPage(driver)
 
 
+
