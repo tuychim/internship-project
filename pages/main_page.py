@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 from pages.base_page import Page
@@ -20,24 +21,24 @@ class MainPage(Page):
 
     def open_main(self):
         self.open("https://soft.reelly.io/sign-in")
-        sleep(3)
 
     def login_page(self):
         self.driver.find_element(*LOGIN_INPUT).send_keys('tuychi.m@gmail.com')
         self.driver.find_element(*PASSWORD_INPUT).send_keys('passwordtest')
         self.driver.find_element(*SUBMIT_BUTTON).click()
+        sleep(8)
 
     def click_on_off(self):
         self.wait_until_clickable_click(*CLICK_FILTER)
 
     def verify_page(self):
+        sleep(15)
         self.verify_url('https://soft.reelly.io/')
-        sleep(5)
 
     def filter_by_last_units(self):
         self.driver.find_element(*CLICK_FILTER).click()
+        sleep(8)
         self.driver.find_element(*CLICK_LAST_UNIT).click()
-        sleep(6)
 
     def verify_last_units(self):
         tags = self.driver.find_elements(*VERIFY_TAG)
@@ -45,3 +46,5 @@ class MainPage(Page):
         assert tags, "No elements found with the Last Units tag"
         for tag in tags:
             assert tag.text == expected_text, f"Expected text 'Last units', but got '{tag.text}'"
+        sleep(10)
+
