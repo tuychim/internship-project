@@ -13,13 +13,13 @@ def browser_init(context):
     :param context: Behave context
     """
 
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
-
-    # driver_path = GeckoDriverManager().install()
+    # driver_path = ChromeDriverManager().install()
     # service = Service(driver_path)
-    # context.driver = webdriver.Firefox(service=service)
+    # context.driver = webdriver.Chrome(service=service)
+
+    driver_path = GeckoDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Firefox(service=service)
 
     ### Chrome HEADLESS MODE ###
     # options = webdriver.ChromeOptions()
@@ -43,7 +43,6 @@ def browser_init(context):
     context.driver.maximize_window()
     context.driver.implicitly_wait(6)
     context.wait = WebDriverWait(context.driver, timeout=15)
-
     context.app = Application(context.driver)
 
 

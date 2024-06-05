@@ -1,26 +1,31 @@
 from selenium.webdriver.common.by import By
 from behave import given, when, then
+from time import sleep
 
 from pages.base_page import Page
 
 
 @given('Open the main page')
 def open_main_page(context):
+    sleep(6)
     context.app.main_page.open_main()
 
 
 @when('Log in to the page')
 def login_page(context):
+    sleep(6)
     context.app.main_page.login_page()
 
 
 @when('Click on “off plan” at the left side menu')
 def click_on_off(context):
+    sleep(6)
     context.app.main_page.click_on_off()
 
 
 @when('Verify the right page opens')
 def verify_page(context):
+    sleep(6)
     context.app.main_page.verify_page()
 
 
