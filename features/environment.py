@@ -7,19 +7,19 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from app.application import Application
 
+
 #  Run Behave tests with Allure results
-#behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/
+# behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/
 
 
-def browser_init(context, scenario_name):
-
+def browser_init(context):
     """
     :param context: Behave context
     """
 
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
 
     # driver_path = GeckoDriverManager().install()
     # service = Service(driver_path)
@@ -45,7 +45,7 @@ def browser_init(context, scenario_name):
     # )
 
     ### BROWSERSTACK ###
-    #Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
+    # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
     # bs_user = 'tuychim_BCR4o2'
     # bs_key = '2RsxhhcnZw44SbRHw2p1'
     # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
@@ -60,6 +60,21 @@ def browser_init(context, scenario_name):
     # options.set_capability('bstack:options', bstack_options)
     # context.driver = webdriver.Remote(command_executor=url, options=options)
 
+    ### MOBILE WEB ###
+    mobile_emulation = {
+        "deviceName": "iPhone SE"  # You can use other device names as well
+    }
+    # Chrome options
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service, options=chrome_options)
+
+    context.driver.set_window_size(375, 667)
+    # Set the zoom level to 87%
+    context.driver.execute_script("document.body.style.zoom='50%'")
+
     context.driver.maximize_window()
     context.driver.implicitly_wait(6)
     context.wait = WebDriverWait(context.driver, timeout=15)
@@ -68,7 +83,8 @@ def browser_init(context, scenario_name):
 
 def before_scenario(context, scenario):
     print('\nStarted scenario: ', scenario.name)
-    browser_init(context, scenario.name)
+    browser_init(context)
+    # browser_init(context, scenario.name)
 
 
 def before_step(context, step):
@@ -81,5 +97,5 @@ def after_step(context, step):
         # context.app.base_page.save_screenshot(step)
 
 
-def after_scenario(context, feature):
+def after_scenario(context):
     context.driver.quit()
