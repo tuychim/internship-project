@@ -9,7 +9,7 @@ PASSWORD_INPUT = (By.ID, "field")
 SUBMIT_BUTTON = (By.CSS_SELECTOR, ".login-button")
 # CLICK_OFF_PLAN_BUTTON = (By.CSS_SELECTOR, "[wized='mobileTabProperties']")
 CLICK_OFF_PLAN_BUTTON = (By.CSS_SELECTOR, ".html-embed")
-#CLICK_FILTER = (By.CSS_SELECTOR, "[.filter-button]")
+# CLICK_FILTER = (By.CSS_SELECTOR, "[.filter-button]")
 CLICK_FILTER = (By.CSS_SELECTOR, "div[class='filter-button']")
 CLICK_LAST_UNIT = (By.CSS_SELECTOR, "[wized='priorityStatusLastUnits']")
 VERIFY_TAG = (By.CSS_SELECTOR, '[wized="projectStatus"]')
@@ -18,7 +18,7 @@ VERIFY_TAG = (By.CSS_SELECTOR, '[wized="projectStatus"]')
 class MainPage(Page):
 
     def open_main(self):
-        self.open("https://soft.reelly.io/sign-in")
+        self.open("https://soft.reelly.io/sign-up")
 
     def login_page(self):
         self.driver.find_element(*LOGIN_INPUT).send_keys('tuychi.m@gmail.com')

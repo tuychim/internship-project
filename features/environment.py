@@ -17,9 +17,9 @@ def browser_init(context):
     :param context: Behave context
     """
 
-    # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service)
 
     # driver_path = GeckoDriverManager().install()
     # service = Service(driver_path)
@@ -61,19 +61,19 @@ def browser_init(context):
     # context.driver = webdriver.Remote(command_executor=url, options=options)
 
     ### MOBILE WEB ###
-    mobile_emulation = {
-        "deviceName": "iPhone SE"  # You can use other device names as well
-    }
-    # Chrome options
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service, options=chrome_options)
-
-    context.driver.set_window_size(375, 667)
-    # Set the zoom level to 87%
-    context.driver.execute_script("document.body.style.zoom='50%'")
+    # mobile_emulation = {
+    #     "deviceName": "iPhone SE"  # You can use other device names as well
+    # }
+    # # Chrome options
+    # chrome_options = webdriver.ChromeOptions()
+    # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service, options=chrome_options)
+    #
+    # context.driver.set_window_size(375, 667)
+    # # Set the zoom level to 87%
+    # context.driver.execute_script("document.body.style.zoom='50%'")
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(6)

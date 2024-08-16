@@ -10,9 +10,14 @@ Feature: Test Scenarios for Search functionality
   Scenario: User can filter by sale status Last Units
     Given Open the main page
     When Log in to the page
-    When Click on “off plan” at the left side menu
+    When Click on “'off plan” at the left side menu
     When Verify the right page opens
     When Filter by sale status of “Last Units”
     Then Verify each product contains the Last Units tag
 
 
+
+  Scenario: The user can enter the information into the input fields on the registration page
+    Given Open the registration page or sign up page
+    When Enter some test information in the input fields.
+    Then Verify the right information is present.

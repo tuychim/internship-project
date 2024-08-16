@@ -37,19 +37,39 @@ class Page:
 
     def wait_until_clickable_click(self, *locator):
         self.wait.until(
-            EC.element_to_be_clickable(locator),
+            EC.element_to_be_clickable(*locator),
             f'Element not clickable by {locator}'
         ).click()
 
+    def select_dropdown_value(self, value, *locator):
+        select_element = self.driver.find_element(*locator)
+        select = Select(select_element)
+        select.select_by_visible_text(value)
+
+    def get_dropdown_value(self, value, *locator):
+        select_element = self.driver.find_element(*locator)
+        select = Select(select_element)
+        selected_text = select.first_selected_option.text
+        assert value == selected_text, f"Expected {value} but got {selected_text}"
+
+    def checkbox_click(self, *locator):
+        checkbox_element = self.driver.find_element(*locator)
+        if checkbox_element.is_selected() != True:
+            checkbox_element.click()
+
+    def is_checkbox_selected(self, *locator):
+        checkbox_element = self.driver.find_element(*locator)
+        assert checkbox_element.is_selected() == True, f"Checkbox needs to selected!"
+
     def wait_until_visible(self, *locator):
         self.wait.until(
-            EC.visibility_of_element_located(locator),
+            EC.visibility_of_element_located(*locator),
             f'Element not visible by {locator}'
         )
 
     def wait_until_disappears(self, *locator):
         self.wait.until(
-            EC.invisibility_of_element_located(locator),
+            EC.invisibility_of_element_located(*locator),
             f'Element still visible by {locator}'
         )
 
@@ -69,6 +89,10 @@ class Page:
     def switch_window_by_id(self, window_id):
         print('Switching to... ', window_id)
         self.driver.switch_to.window(window_id)
+
+    def verify_attribute_value(self, expected_text, *locator):
+        actual_text = self.driver.find_element(*locator).get_attribute("value")
+        assert expected_text == actual_text, f"Expected {expected_text} but got {actual_text}"
 
     def verify_text(self, expected_text, *locator):
         actual_text = self.find_element(*locator).text
