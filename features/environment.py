@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 
 from app.application import Application
+from log_files.logger import logger
 
 
 #  Run Behave tests with Allure results
@@ -17,7 +18,8 @@ def browser_init(context):
     :param context: Behave context
     """
 
-    driver_path = ChromeDriverManager().install()
+    driver_path = './chromedriver.exe'  # for windows users
+    #driver_path = './chromedriver'  # for macOS users
     service = Service(driver_path)
     context.driver = webdriver.Chrome(service=service)
 
@@ -78,24 +80,28 @@ def browser_init(context):
     context.driver.maximize_window()
     context.driver.implicitly_wait(6)
     context.wait = WebDriverWait(context.driver, timeout=15)
+
     context.app = Application(context.driver)
 
 
 def before_scenario(context, scenario):
-    print('\nStarted scenario: ', scenario.name)
+    print('Started scenario: ', scenario.name)
+    logger.info(f'Started scenario: {scenario.name}')
     browser_init(context)
-    # browser_init(context, scenario.name)
 
 
 def before_step(context, step):
-    print('\nStarted step: ', step)
+    print('Started step: ', step)
+    logger.info(f'Started step: {step}')
 
 
 def after_step(context, step):
     if step.status == 'failed':
-        print('\nStep failed: ', step)
-        # context.app.base_page.save_screenshot(step)
+        logger.warning(f'Step failed: {step}')
+        context.driver.save_screenshot(f'screenshots_of_failed_steps/{step}.png')
+        print('Step failed: ', step)
 
 
-def after_scenario(context):
+def after_scenario(context, feature):
+    context.driver.delete_all_cookies()
     context.driver.quit()

@@ -5,16 +5,16 @@ from time import sleep
 from pages.base_page import Page
 
 
-@given('Open the main page')
-def open_main_page(context):
-    sleep(6)
-    context.app.main_page.open_main()
-
-
-@when('Log in to the page')
-def login_page(context):
-    sleep(6)
-    context.app.main_page.login_page()
+# #@given('Open the main page')
+# def open_main_page(context):
+#     sleep(6)
+#     context.app.main_page.open_main()
+#
+#
+# @when('Log in to the page')
+# def login_to_the_page(context):
+#     sleep(6)
+#     context.app.main_page.login_page()
 
 
 @when('Click on “off plan” at the left side menu')

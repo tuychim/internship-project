@@ -21,3 +21,11 @@ Feature: Test Scenarios for Search functionality
     Given Open the registration page or sign up page
     When Enter some test information in the input fields.
     Then Verify the right information is present.
+
+
+  Scenario: The user can click on “Connect the company” on the left side of the main page
+    Given Open sign in page
+    When  Log in to the page.
+    When Click on “Connect the company"
+    When Switch the new tab.
+    Then Verify the right tab opens
