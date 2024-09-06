@@ -4,9 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
-LOGIN_INPUT = (By.ID, "email-2")
-PASSWORD_INPUT = (By.ID, "field")
-SUBMIT_BUTTON = (By.CSS_SELECTOR, ".login-button")
+
 CLICK_SETTINGS_BTN = (By.CSS_SELECTOR, "a[href='/settings'] div[class='menu-button-text']")
 CLICK_EDIT_PROFILE_BTN = (By.CSS_SELECTOR, "a[class*='page-setting-block']")
 NAME_INPUT = (By.CSS_SELECTOR, "input[wized='nameInputProfile']")

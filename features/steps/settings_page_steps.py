@@ -8,7 +8,7 @@ def open_signin_page(context):
     context.app.main_page.open_main()
 
 
-@when('Log in to the page')
+@when('Log in to the page.')
 def login_page(context):
     context.app.settings_page.login_page()
 
