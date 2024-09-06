@@ -23,9 +23,14 @@ Feature: Test Scenarios for Search functionality
     Then Verify the right information is present.
 
 
-  Scenario: The user can click on “Connect the company” on the left side of the main page
+  Scenario:  User can go to settings and edit the personal information
     Given Open sign in page
-    When  Log in to the page.
-    When Click on “Connect the company"
-    When Switch the new tab.
-    Then Verify the right tab opens
+    When  Log in to the page
+    When Click on settings option
+    When Click on Edit profile option
+    When Enter test data into the name field
+    When Enter test data into the phone number field
+    Then Check the right information is present in the name input fields
+    Then Check the right information is present in the phone number input field
+    Then Check “Save Changes” button is available and clickable
+    Then Check “Close” button is available and clickable

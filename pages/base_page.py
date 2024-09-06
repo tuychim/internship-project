@@ -108,6 +108,10 @@ class Page:
     def verify_url(self, expected_url):
         self.wait.until(EC.url_matches(expected_url), message=f'Url does not contain {expected_url}')
 
+    def verify_input_field_text(self, expected_text, *locator):
+        actual_text = self.find_element(*locator).get_attribute("value")
+        assert actual_text == expected_text, f'{actual_text} != {expected_text}'
+
     def save_screenshot(self, name):
         self.driver.save_screenshot(f'{name}.png')
 
