@@ -3,6 +3,7 @@ from pages.main_page import MainPage
 from pages.sign_up_page import SignUpPage
 from pages.settings_page import SettingsPage
 from pages.language_settings import LanguageSettings
+from pages.add_project import AddProject
 
 
 class Application:
@@ -13,6 +14,7 @@ class Application:
         self.sign_up_page = SignUpPage(driver)
         self.settings_page = SettingsPage(driver)
         self.language_settings = LanguageSettings(driver)
+        self.add_project = AddProject(driver)
 
 
 

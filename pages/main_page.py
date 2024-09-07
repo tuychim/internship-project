@@ -18,12 +18,13 @@ VERIFY_TAG = (By.CSS_SELECTOR, '[wized="projectStatus"]')
 class MainPage(Page):
 
     def open_main(self):
-        self.open("https://soft.reelly.io")
+        self.open("https://soft.reelly.io/main-menu")
 
     def login_page(self):
         self.driver.find_element(*LOGIN_INPUT).send_keys('tuychi.m@gmail.com')
         self.driver.find_element(*PASSWORD_INPUT).send_keys('passwordtest')
         self.driver.find_element(*SUBMIT_BUTTON).click()
+        sleep(10)
 
     def click_on_off(self):
         self.driver.find_element(*CLICK_OFF_PLAN_BUTTON).click()

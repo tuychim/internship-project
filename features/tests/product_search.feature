@@ -7,13 +7,22 @@ Feature: Test Scenarios for Search functionality
     Then Product results for Car are shown
 
 
-  Scenario: User can filter by sale status Last Units
-    Given Open the main page
-    When Log in to the page.
-    When Click on “'off plan” at the left side menu
-    When Verify the right page opens
-    When Filter by sale status of “Last Units”
-    Then Verify each product contains the Last Units tag
+  Scenario: User can add a project through the settings
+    Given Open the main page.
+    And Sign in
+    When Click on settings option.
+    When  Click on Add a project.
+    When Verify the right page opens.
+    Then Enter name
+    Then Enter Company name
+    Then Enter Role in the company
+    Then Enter Age of the company
+    Then Enter Country for placing the project
+    Then Enter Name of the project to hos
+    Then Enter Phone
+    Then Enter Email
+    #Then Verify the right information is present in the input fields.
+    Then Verify “Send an application” button is available and clickable.
 
 
 
