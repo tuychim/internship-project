@@ -64,6 +64,34 @@ class AddProject(Page):
         self.input_text(company_email, *EMAIL_BOX)
         sleep(4)
 
+    def verify_right_information(self, expected_name, expected_company, expected_role, expected_age, expected_country,
+                                 expected_project_name, expected_phone, expected_email):
+
+        actual_name = self.find_element(*NAME_TEXT_BOX).get_attribute('value')
+        assert actual_name == expected_name, f"Expected name '{expected_name}', but got '{actual_name}'"
+
+        actual_company = self.find_element(*COMPANY_TEXT_BOX).get_attribute('value')
+        assert actual_company == expected_company, f"Expected company '{expected_company}', but got '{actual_company}'"
+
+        actual_role = self.find_element(*ROLE_TEXT_BOX).get_attribute('value')
+        assert actual_role == expected_role, f"Expected role '{expected_role}', but got '{actual_role}'"
+
+        actual_age = self.find_element(*COMPANY_AGE_INPUT).get_attribute('value')
+        assert actual_age == expected_age, f"Expected age '{expected_age}', but got '{actual_age}'"
+
+        actual_country = self.find_element(*PROJECT_COUNTRY_BOX).get_attribute('value')
+        assert actual_country == expected_country, f"Expected country '{expected_country}',but got'{actual_country}'"
+
+        actual_project_name = self.find_element(*PROJECT_NAME_BOX).get_attribute('value')
+        assert actual_project_name == expected_project_name, (f"Expected project name'{expected_project_name}',but got'"
+                                                              f"{actual_project_name}'")
+
+        actual_phone = self.find_element(*PHONE_NUMBER_BOX).get_attribute('value')
+        assert actual_phone == expected_phone, f"Expected phone number '{expected_phone}', but got '{actual_phone}'"
+
+        actual_email = self.find_element(*EMAIL_BOX).get_attribute('value')
+        assert actual_email == expected_email, f"Expected email '{expected_email}', but got '{actual_email}'"
+
     def send_app_btn(self):
         self.click(*APPLICATION_BUTTON)
         sleep(4)

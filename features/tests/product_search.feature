@@ -13,15 +13,8 @@ Feature: Test Scenarios for Search functionality
     When Click on settings option.
     When  Click on Add a project.
     When Verify the right page opens.
-    Then Enter name
-    Then Enter Company name
-    Then Enter Role in the company
-    Then Enter Age of the company
-    Then Enter Country for placing the project
-    Then Enter Name of the project to hos
-    Then Enter Phone
-    Then Enter Email
-    #Then Verify the right information is present in the input fields.
+    When User enters project details
+    Then Verify the right information is present in the input fields
     Then Verify “Send an application” button is available and clickable.
 
 
