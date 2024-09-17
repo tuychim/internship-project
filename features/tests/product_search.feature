@@ -7,15 +7,13 @@ Feature: Test Scenarios for Search functionality
     Then Product results for Car are shown
 
 
-  Scenario: User can add a project through the settings
+  Scenario:  User can open the community page
     Given Open the main page.
     And Sign in
     When Click on settings option.
-    When  Click on Add a project.
+    When  Click on Community option.
     When Verify the right page opens.
-    When User enters project details
-    Then Verify the right information is present in the input fields
-    Then Verify “Send an application” button is available and clickable.
+    Then Verify “Contact support” button is available and clickable.
 
 
 
