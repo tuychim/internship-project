@@ -7,17 +7,18 @@ Feature: Test Scenarios for Search functionality
     Then Product results for Car are shown
 
 
-  Scenario:  User can open the community page
+  Scenario: User can open the Contact us page
     Given Open the main page.
     And Sign in
-    When Click on settings option.
-    When  Click on Community option.
+    When Click on settings option
+    When  Click on Contact us option
     When Verify the right page opens.
-    Then Verify “Contact support” button is available and clickable.
+    Then Verify there are at least 4 social media icons
+    Then Verify “Connect the company” button is available and clickable
 
 
 
-  Scenario:  User can go to settings and edit the personal information
+  Scenario: User can go to settings and edit the personal information
     Given Open sign in page
     When Click on settings option
     When Click on Edit profile option
