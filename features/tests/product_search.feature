@@ -7,14 +7,13 @@ Feature: Test Scenarios for Search functionality
     Then Product results for Car are shown
 
 
-  Scenario: User can open the Contact us page
+  Scenario: User can open User guide page
     Given Open the main page.
     And Sign in
     When Click on settings option
-    When  Click on Contact us option
+    When Click on User Guide option.
     When Verify the right page opens.
-    Then Verify there are at least 4 social media icons
-    Then Verify “Connect the company” button is available and clickable
+    Then Verify all lesson videos contain titles
 
 
 
