@@ -7,13 +7,24 @@ Feature: Test Scenarios for Search functionality
     Then Product results for Car are shown
 
 
-  Scenario: User can open User guide page
+  Scenario: User can filter by sale status Out of Stocks
     Given Open the main page.
     And Sign in
-    When Click on settings option
-    When Click on User Guide option.
+    When Click on “off plan” at the left side menu
     When Verify the right page opens.
-    Then Verify all lesson videos contain titles
+    When Click on Filters
+    When Filter by sale status of “Out of Stocks"
+    Then  Verify each product contains the Out of Stocks tag
+
+
+Scenario: User can open product detail and see three options of visualization
+  Given Open the main page,
+    And Sign in.
+    When Click on “off plan” at the left side menu.
+    When Click on the first product
+    When Verify the three options of visualization are “architecture”, “lobby”
+    Then Verify the visualization options are clickable.
+
 
 
 

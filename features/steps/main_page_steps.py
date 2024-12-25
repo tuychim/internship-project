@@ -17,7 +17,7 @@ from pages.base_page import Page
 #     context.app.main_page.login_page()
 
 
-@when('Click on “off plan” at the left side menu')
+when('Click on “Off plan” at the left side menu')
 def click_on_off(context):
     sleep(6)
     context.app.main_page.click_on_off()

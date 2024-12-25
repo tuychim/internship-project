@@ -3,7 +3,8 @@ from pages.main_page import MainPage
 from pages.sign_up_page import SignUpPage
 from pages.settings_page import SettingsPage
 from pages.language_settings import LanguageSettings
-from pages.user_guide_page import UserGuidePage
+from pages.off_plan_page import OffPlanPage
+from pages.product_detail import ProductDetail
 
 
 class Application:
@@ -14,7 +15,8 @@ class Application:
         self.sign_up_page = SignUpPage(driver)
         self.settings_page = SettingsPage(driver)
         self.language_settings = LanguageSettings(driver)
-        self.user_guide_page = UserGuidePage(driver)
+        self.off_plan_page = OffPlanPage(driver)
+        self.product_detail = ProductDetail(driver)
 
 
 
