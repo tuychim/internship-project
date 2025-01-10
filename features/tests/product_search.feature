@@ -18,13 +18,21 @@ Feature: Test Scenarios for Search functionality
 
 
 Scenario: User can open product detail and see three options of visualization
-  Given Open the main page,
-    And Sign in.
+  Given Open the main page.
+    And Sign in
     When Click on “off plan” at the left side menu.
     When Click on the first product
     When Verify the three options of visualization are “architecture”, “lobby”
     Then Verify the visualization options are clickable.
 
+
+Scenario:  User can open market tab and go through the pagination
+  Given Open the main page
+    And Sign in
+    When Click on “market” at the left side menu.
+    When Verify the right page opens.
+    When Go to the final page using pagination.
+    Then Go to the first page using pagination.
 
 
 
@@ -41,7 +49,7 @@ Scenario: User can open product detail and see three options of visualization
 
 
   Scenario: User can change the language from the page
-    Given Open the main page
+    Given Open the main page.
     When  Log in to the page
     When Click on Main menu
     When Change the language of the page to Russian. The option will be “RU” which is the list of the languages

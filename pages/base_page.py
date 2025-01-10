@@ -35,7 +35,7 @@ class Page:
     def input_text(self, text, *locator):
         self.find_element(*locator).send_keys(text)
 
-    def wait_until_clickable_click(self, *locator):
+    def wait_until_clickable(self, *locator):
         self.wait.until(
             EC.element_to_be_clickable(*locator),
             f'Element not clickable by {locator}'
