@@ -30,9 +30,9 @@ class MainPage(Page):
         self.driver.find_element(*CLICK_OFF_PLAN_BUTTON).click()
         sleep(10)
 
-    def verify_page(self):
-        self.verify_url('https://soft.reelly.io/')
-        sleep(10)
+    # def verify_page(self):
+    #     self.verify_url('https://soft.reelly.io/')
+    #     sleep(10)
 
     def filter_by_last_units(self):
         self.driver.find_element(*CLICK_FILTER).click()

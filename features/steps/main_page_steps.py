@@ -23,7 +23,7 @@ def click_on_off(context):
     context.app.main_page.click_on_off()
 
 
-@when('Verify the right page opens')
+@when('Verify the right page opens..')
 def verify_page(context):
     sleep(6)
     context.app.main_page.verify_page()

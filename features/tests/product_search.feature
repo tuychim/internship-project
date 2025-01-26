@@ -7,14 +7,14 @@ Feature: Test Scenarios for Search functionality
     Then Product results for Car are shown
 
 
-  Scenario: User can filter by sale status Out of Stocks
+  Scenario: User can open market tab and filter by developers option
     Given Open the main page.
     And Sign in
-    When Click on “off plan” at the left side menu
-    When Verify the right page opens.
-    When Click on Filters
-    When Filter by sale status of “Out of Stocks"
-    Then  Verify each product contains the Out of Stocks tag
+    When  Click on “market” at the left side menu
+    When Verify the right page opens
+    When Click on Developers filter at the top of the page
+    Then Verify all cards has the license tag
+
 
 
 Scenario: User can open product detail and see three options of visualization
