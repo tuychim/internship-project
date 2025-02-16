@@ -17,20 +17,20 @@ Feature: Test Scenarios for Search functionality
 
 
 
-Scenario: User can open product detail and see three options of visualization
+Scenario: User can click on verifications settings option and verify the right page opens
   Given Open the main page.
     And Sign in
-    When Click on “off plan” at the left side menu.
-    When Click on the first product
-    When Verify the three options of visualization are “architecture”, “lobby”
-    Then Verify the visualization options are clickable.
+    When Click on “settings” at the left side menu.
+    When Click on the verification option.
+    When Verify the right page opens.
+    Then Verify “upload image” and “Next step” buttons are available.
 
 
 Scenario:  User can open market tab and go through the pagination
   Given Open the main page
     And Sign in
     When Click on “market” at the left side menu.
-    When Verify the right page opens.
+    When Verify the right page opens..
     When Go to the final page using pagination.
     Then Go to the first page using pagination.
 
