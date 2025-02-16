@@ -22,17 +22,18 @@ Scenario: User can click on verifications settings option and verify the right p
     And Sign in
     When Click on “settings” at the left side menu.
     When Click on the verification option.
-    When Verify the right page opens.
+    When Verify the right page opens..
     Then Verify “upload image” and “Next step” buttons are available.
 
 
-Scenario:  User can open market tab and go through the pagination
+Scenario: User can open market tab and add company option
   Given Open the main page
     And Sign in
     When Click on “market” at the left side menu.
-    When Verify the right page opens..
-    When Go to the final page using pagination.
-    Then Go to the first page using pagination.
+    When Verify the right page opens.
+    When Click on “Add Company” button.
+    Then Verify the right page opens.
+    Then Verify the button “Publish my company” is available.
 
 
 
