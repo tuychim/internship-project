@@ -7,18 +7,22 @@ Feature: Test Scenarios for Search functionality
     Then Product results for Car are shown
 
 
-  Scenario: User can open market tab and filter by developers option
+  Scenario: User can open market tab and go to the view page template
     Given Open the main page.
-    And Sign in
+    And Log in to the page
     When  Click on “market” at the left side menu
-    When Verify the right page opens
-    When Click on Developers filter at the top of the page
-    Then Verify all cards has the license tag
+    And Verify the right page open
+    When Click on “Add Company” button.
+    And Verify the right page opens.
+    Then Scroll down and click on the button “View Page Template”
+    Then Verify the button “Send my CV” button is available.
+
+
 
 
 
 Scenario: User can click on verifications settings option and verify the right page opens
-  Given Open the main page.
+  Given Open the main page..
     And Sign in
     When Click on “settings” at the left side menu.
     When Click on the verification option.
@@ -31,10 +35,9 @@ Scenario: User can open market tab and add company option
     And Sign in
     When Click on “market” at the left side menu.
     When Verify the right page opens.
-    When Click on “Add Company” button.
-    Then Verify the right page opens.
+    When Click on “Add Company” button
+    Then Verify the right page opens..
     Then Verify the button “Publish my company” is available.
-
 
 
   Scenario: User can go to settings and edit the personal information
